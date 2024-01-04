@@ -19,12 +19,26 @@ class Collection extends Model
         'categories' => 'array',
     ];
 
-    // public function categories()
-    // {
-    //     return $this->belongsToMany(Category::class);
-    // }
+
     public function categories()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsToMany(Category::class);
     }
+
+    public function getCategoriesAttribute()
+    {
+        // Assuming category IDs are stored in the 'categories' field as a JSON array
+        $categoryIds = json_decode($this->attributes['categories'], true);
+
+        // Return the related categories based on the IDs
+         // Assuming category IDs are stored in the 'categories' field as a JSON array
+         return json_decode($this->attributes['categories'], true);
+    }
+
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
 }

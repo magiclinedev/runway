@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('images');
             $table->unsignedBigInteger('collection_id');
             $table->unsignedBigInteger('category_id');
+            $table->int('status');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('collection')->onDelete('cascade');
-            $table->foreign('company_id')->references('id')->on('category')->onDelete('cascade');
+            $table->foreign('collection_id')->references('id')->on('collections')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

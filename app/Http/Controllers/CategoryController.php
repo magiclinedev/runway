@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Category;
+use App\Models\Product;
 use Inertia\Inertia;
 use App\Models\Collection;
 
@@ -25,5 +26,13 @@ class CategoryController extends Controller
         ]);
 
         return response()->json(['message' => 'Category added successfully']);
+    }
+
+    public function view_thumbnail($categoryId, $collectionId){
+        $thumbnail = Product::where('category_id', $categoryId)
+                        ->where('collection_id', $collectionId)
+                        ->first();
+        // dd($thumbnail);
+        return response()->json($thumbnail);
     }
 }
