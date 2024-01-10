@@ -22,7 +22,7 @@ defineProps({
                     {{ product.item_reference }}<br>
                     {{ product.description }}
                     <img
-                    :src="`/storage/${encodeURIComponent(product.images)}`"
+                    :src="decodeURIComponent(`/storage/${encodeURIComponent(product.images)}`)"
                     alt="Thumbnail"
                     class="w-full h-78 object-cover rounded mt-2"
                 />

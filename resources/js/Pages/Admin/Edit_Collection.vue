@@ -33,7 +33,7 @@ defineProps({
                         <!-- Display Current Image -->
                         <div class="mb-4" v-if="collection.image">
                             <label class="block text-sm font-medium text-gray-700">Current Image</label>
-                            <img :src="`/storage/${encodeURIComponent(collection.image)}`" alt="Current Image" class="mt-2 w-80 h-full object-cover rounded" />
+                            <img :src="decodeURIComponent(`/storage/${encodeURIComponent(collection.image)}`)" alt="Current Image" class="mt-2 w-80 h-full object-cover rounded" />
                         </div>
 
                         <!-- Edit Image -->

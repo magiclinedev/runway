@@ -67,7 +67,7 @@ defineProps({
                             </td>
                             <td class="p-2 border-b border-gray-300 px-2 py-2 border">
                                 <div v-if="item.images">
-                                    <img :src="`/storage/${item.images}`" alt="Product Image" class="max-w-10% h-20" />
+                                    <img :src="decodeURIComponent(`/storage/${item.images}`)" alt="Product Image" class="max-w-10% h-20" />
                                 </div>
                                 <div v-else>
                                     No image

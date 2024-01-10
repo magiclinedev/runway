@@ -21,14 +21,14 @@ defineProps({
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                     <div class="flex flex-col gap-4 order-1 sm:order-none">
                         <img
-                            :src="`/storage/${encodeURIComponent(product.images)}`"
+                            :src="decodeURIComponent(`/storage/${encodeURIComponent(product.images)}`)"
                             alt="Thumbnail"
                             class="w-40 h-auto object-cover rounded"
                         />
                     </div>
                     <div class="md:col-span-2 sm:col-span-1 rounded-md overflow-hidden">
                         <img
-                        :src="`/storage/${encodeURIComponent(product.images)}`"
+                        :src="decodeURIComponent(`/storage/${encodeURIComponent(product.images)}`)"
                         alt="Thumbnail"
                         class="w-full h-auto object-cover rounded"
                         />

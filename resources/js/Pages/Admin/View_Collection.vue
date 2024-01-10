@@ -28,7 +28,7 @@ defineProps({
                     <div class="col-span-1 bg-gray-100 rounded-md overflow-hidden">
                         <img
                         v-if="collection.image"
-                        :src="`/storage/${encodeURIComponent(collection.image)}`"
+                        :src="decodeURIComponent(`/storage/${encodeURIComponent(collection.image)}`)"
                         alt="Collection Image"
                         class="w-auto h-96 rounded"
                         />
@@ -47,7 +47,6 @@ defineProps({
                                         <div class="bg-white p-4 mb-2 border rounded-md flex-shrink-0">
                                             <span class="text-lg font-bold">{{ findCategoryById(categoryId).name }}</span>
 
-                                            <!-- Render thumbnails for the current category -->
                                             <!-- Render thumbnails for the current category -->
                                             <div>
                                                 <template v-if="products && products.length > 0">
