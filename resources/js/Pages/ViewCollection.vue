@@ -43,7 +43,7 @@ defineProps({
                         <!-- Check if the product has status === 3 and belongs to the current category -->
                         <template v-if="product.status == 3 && product.category_id == categoryId">
                           <img
-                            :src="`/storage/${encodeURIComponent(product.images)}`"
+                            :src="decodeURIComponent(`/storage/${encodeURIComponent(product.images)}`)"
                             alt="Thumbnail"
                             class="w-full h-78 object-cover rounded mb-2"
                           />

@@ -78,6 +78,7 @@ class CollectionController extends Controller
     // Store/Add Collection
     public function store(Request $request)
     {
+        // dd($request->all());
         try {
             // Validate form data
             $request->validate([
@@ -92,12 +93,12 @@ class CollectionController extends Controller
             // Create the collection with the provided data
             $collection = Collection::create([
                 'name' => $request->name,
-                // 'categories' => $request->categories, // 'categories' will be null if not provided
+                'categories' => $request->categories, // 'categories' will be null if not provided
                 'image' => $imagePath,
                 'activeStatus' => 1,
             ]);
             // Sync categories
-            $collection->categories()->sync($request->input('categories', []));
+            // $collection->categories()->sync($request->input('categories', []));
 
             return redirect()->route('collection')->with(['message' => 'Collection added successfully']);
         } catch (\Exception $e) {

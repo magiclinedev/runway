@@ -1,4 +1,4 @@
-<!-- Collection's Category's Products -->
+<!-- Collection's Category's -->
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import NavbarLayout from '@/Layouts/NavbarLayout.vue';
@@ -30,7 +30,7 @@ defineProps({
                                 <div :key="index" class="bg-white p-4 mb-4 rounded-md hover:shadow-md w-80 m-2">
                                     <h2 class="text-lg font-bold mb-2">{{ product.item_reference }}</h2>
                                     <img
-                                        :src="`/storage/${encodeURIComponent(product.images)}`"
+                                        :src="decodeURIComponent(`/storage/${encodeURIComponent(product.images)}`)"
                                         alt="Product Image"
                                         class="w-auto h-96 object-cover rounded"
                                     />

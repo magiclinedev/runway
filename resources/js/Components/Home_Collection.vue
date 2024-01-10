@@ -4,10 +4,10 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-4 p-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 <a v-for="item in tableData_Collection" :key="item.id" :href="`/collection_view/${encodeURIComponent(item.id)}`">
-                    <div class="bg-gray-100 rounded-md overflow-hidden" :style="{ backgroundImage: `url('/storage/${encodeURIComponent(item.image)}')`, backgroundPosition: '50% 0%', backgroundSize: 'cover' }">
-                        <h2 class="text-lg font-semibold bg-black bg-opacity-50 text-white p-40">{{ item.name }}</h2>
+                    <div class="bg-gray-100 rounded-md overflow-hidden" :style="{ backgroundImage: `url('${getImageUrl(item.image)}')`, backgroundPosition: '50% 0%', backgroundSize: 'cover' }">
+                      <h2 class="text-lg font-semibold bg-black bg-opacity-50 text-white p-40">{{ item.name }}</h2>
                     </div>
-                </a>
+                  </a>
             </div>
         </div>
     </div>
@@ -40,6 +40,9 @@ export default {
             .catch(error => {
                 console.error('Error fetching collection data:', error);
             });
+        },
+        getImageUrl(imagePath) {
+            return `/storage/${encodeURIComponent(imagePath).replace(/%2F/g, '/')}`;
         },
     },
 };
